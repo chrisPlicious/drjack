@@ -41,23 +41,7 @@ export default function Home() {
         <MobileNav items={navItems} consultationUrl={consultationUrl} />
       </header>
 
-      <section className="hero shell" aria-labelledby="hero-title">
-        <div className="hero-copy">
-          <p className="eyebrow">Dating, marriage, and Jewish matchmaking</p>
-          <h1 id="hero-title">Clarity for the relationships that matter most.</h1>
-          <p className="hero-subtitle">
-            Private, practical guidance for Jewish singles and couples.
-          </p>
-          <div className="hero-actions">
-            <a className="button" href={consultationUrl}>
-              Book a consultation
-            </a>
-            <a className="text-link" href="#approach">
-              Explore the approach
-            </a>
-          </div>
-        </div>
-
+      <section className="hero" aria-labelledby="hero-title">
         <div className="hero-portrait" aria-hidden="true">
           <Image
             src="/images/dr-jack-portrait.png"
@@ -66,6 +50,50 @@ export default function Home() {
             priority
             sizes="(max-width: 767px) 100vw, 50vw"
           />
+        </div>
+
+        <div className="hero-copy">
+          <h1 id="hero-title">
+            Experience,<br />guided by <em>care.</em>
+          </h1>
+          <p className="hero-subtitle">
+            Rabbi Dr. Jack Cohen brings decades of study, mentorship, and practical
+            relationship guidance to every conversation.
+          </p>
+          <div className="hero-actions">
+            <a className="button" href={consultationUrl}>
+              Book a consultation
+            </a>
+            <a className="text-link" href="https://www.drjackdating.com/about">
+              Meet Dr. Jack
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="approach-band" id="approach" aria-label="Dr. Jack's approach">
+        <article>
+          <h2>Listen deeply</h2>
+          <p>We create a safe space to understand your story, values, and what truly matters.</p>
+        </article>
+        <article>
+          <h2>Find the pattern</h2>
+          <p>We uncover the dynamics and patterns shaping your relationships and choices.</p>
+        </article>
+        <article>
+          <h2>Move with clarity</h2>
+          <p>We develop a clear, practical plan and take meaningful steps forward together.</p>
+        </article>
+      </section>
+
+      <section className="proof-band" aria-label="Experience and outcomes">
+        <div>
+          <strong>20+</strong>
+          <span>years helping singles and couples</span>
+        </div>
+        <div>
+          <strong>500+</strong>
+          <span>successful shidduchim</span>
         </div>
       </section>
 
@@ -112,66 +140,6 @@ export default function Home() {
               </a>
             </article>
           </div>
-        </div>
-      </section>
-
-      <section className="proof shell reveal" aria-label="Experience and outcomes">
-        <div>
-          <strong>20+</strong>
-          <span>years helping singles and couples</span>
-        </div>
-        <div>
-          <strong>500+</strong>
-          <span>successful shidduchim</span>
-        </div>
-        <p>Personal guidance, grounded in Jewish values and lived experience.</p>
-      </section>
-
-      <section className="about shell reveal" aria-labelledby="about-title">
-        <div className="about-image">
-          <Image
-            src="/images/dr-jack-speaking.jpg"
-            alt="Rabbi Dr. Jack Cohen speaking to a community audience"
-            fill
-            sizes="(max-width: 767px) 100vw, 88vw"
-          />
-        </div>
-        <div className="about-copy">
-          <h2 id="about-title">Experience, guided by care.</h2>
-          <div>
-            <p>
-              Rabbi Dr. Jack Cohen is an international marriage and dating expert
-              who has spent years studying human relationships and mentoring singles
-              and couples.
-            </p>
-            <p>
-              His approach combines attentive listening, practical guidance, and a
-              deep respect for the values that shape a meaningful Jewish home.
-            </p>
-            <a className="text-link" href="https://www.drjackdating.com/about">
-              Meet Dr. Jack
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="approach shell reveal" id="approach" aria-labelledby="approach-title">
-        <div className="section-heading compact">
-          <h2 id="approach-title">A considered path forward.</h2>
-        </div>
-        <div className="process">
-          <article>
-            <h3>Listen deeply</h3>
-            <p>A private space to understand your story, values, and what matters now.</p>
-          </article>
-          <article>
-            <h3>Find the pattern</h3>
-            <p>See the dynamics shaping your relationships and choices more clearly.</p>
-          </article>
-          <article>
-            <h3>Move with clarity</h3>
-            <p>Leave with practical next steps that feel honest, focused, and possible.</p>
-          </article>
         </div>
       </section>
 
