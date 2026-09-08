@@ -1,45 +1,65 @@
 import Image from "next/image";
-import { MobileNav } from "@/components/mobile-nav";
+import Link from "next/link";
+import { CardFanCarousel } from "@/components/ui/card-fan-carousel";
+import { SiteFooter } from "@/components/site-footer";
 
-const navItems = [
-  ["Home", "#home"],
-  ["Counseling", "#counseling"],
-  ["Matchmaking", "#matchmaking"],
-  ["Invite Dr. Jack", "https://www.drjackdating.com/invite-dr-jack"],
-  ["Testimonials", "#testimonials"],
-  ["Discover", "https://www.drjackdating.com/discover"],
+const consultationUrl = "/book-a-consultation";
+
+const recentMatches = [
+  {
+    src: "/images/matches/match-1.webp",
+    alt: "Mazal tov announcement for Chosson and Natali Saba",
+    name: "Chosson & Natali Saba",
+    width: 1000,
+    height: 1404,
+  },
+  {
+    src: "/images/matches/match-2.webp",
+    alt: "Mazal tov announcement for Yishai Ashman and Leah Brodt",
+    name: "Yishai Ashman & Leah Brodt",
+    width: 1000,
+    height: 1404,
+  },
+  {
+    src: "/images/matches/match-3.webp",
+    alt: "Mazal tov announcement for Benyamin Finkelstein and his kallah",
+    name: "Benyamin Finkelstein & Kallah",
+    width: 1000,
+    height: 1404,
+  },
+  {
+    src: "/images/matches/match-4.webp",
+    alt: "Mazal tov announcement for Yosef Gestetner and Rikki Yarmish",
+    name: "Yosef Gestetner & Rikki Yarmish",
+    width: 1000,
+    height: 1404,
+  },
+  {
+    src: "/images/matches/match-5.webp",
+    alt: "Mazal tov announcement for Mr. Solomon and his kallah",
+    name: "Mr. Solomon & Kallah",
+    width: 819,
+    height: 1024,
+  },
+  {
+    src: "/images/matches/match-6.webp",
+    alt: "Mazal tov announcement for Danny Hekmat and Sara Green",
+    name: "Danny Hekmat & Sara Green",
+    width: 1000,
+    height: 1404,
+  },
+  {
+    src: "/images/matches/match-7.webp",
+    alt: "Mazal tov announcement for Chosson and Aliza Lefkowitz",
+    name: "Chosson & Aliza Lefkowitz",
+    width: 1000,
+    height: 1404,
+  },
 ] as const;
-
-const consultationUrl = "https://www.drjackdating.com/book-a-consultation";
 
 export default function Home() {
   return (
     <main id="home">
-      <header className="site-header">
-        <a className="brand" href="#home" aria-label="Dr. Jack Dating home">
-          <Image
-            src="/images/dr-jack-logo.png"
-            alt="Dr. Jack Dating"
-            width={150}
-            height={72}
-            priority
-          />
-        </a>
-
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          {navItems.map(([label, href]) => (
-            <a key={label} href={href}>
-              {label}
-            </a>
-          ))}
-        </nav>
-
-        <a className="button button-small header-cta" href={consultationUrl}>
-          Book a consultation
-        </a>
-
-        <MobileNav items={navItems} consultationUrl={consultationUrl} />
-      </header>
 
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-portrait" aria-hidden="true">
@@ -61,12 +81,12 @@ export default function Home() {
             relationship guidance to every conversation.
           </p>
           <div className="hero-actions">
-            <a className="button" href={consultationUrl}>
+            <Link className="button" href={consultationUrl}>
               Book a consultation
-            </a>
-            <a className="text-link" href="https://www.drjackdating.com/about">
+            </Link>
+            <Link className="text-link" href="/about">
               Meet Dr. Jack
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -118,9 +138,9 @@ export default function Home() {
             <div className="service-feature-copy">
               <h3>Couples Counseling</h3>
               <p>Practical support for deeper connection, lasting trust, and real change.</p>
-              <a className="text-link" href="https://www.drjackdating.com/counseling">
+              <Link className="text-link" href="/counseling">
                 Learn about counseling
-              </a>
+              </Link>
             </div>
           </article>
 
@@ -135,9 +155,9 @@ export default function Home() {
             <article id="matchmaking">
               <h3>Jewish Matchmaking</h3>
               <p>Thoughtful introductions rooted in values that last.</p>
-              <a className="text-link" href="https://www.drjackdating.com/matchmaking">
+              <Link className="text-link" href="/matchmaking">
                 Find your beshert
-              </a>
+              </Link>
             </article>
           </div>
         </div>
@@ -145,52 +165,61 @@ export default function Home() {
 
       <section className="testimonials shell reveal" id="testimonials" aria-labelledby="testimonials-title">
         <div className="section-heading testimonial-heading">
-          <h2 id="testimonials-title">Words from people he has helped.</h2>
+          <span className="testimonial-mark" aria-hidden="true">“</span>
+          <h2 id="testimonials-title">
+            Words from people <em>he has helped.</em>
+          </h2>
         </div>
         <div className="quote-grid">
-          <figure className="quote-main">
-            <blockquote>“We really wouldn’t be where we are without you.”</blockquote>
+          <figure className="quote-card quote-left">
+            <blockquote>
+              Dr. Jack helped me see the patterns holding me back and gave me the
+              clarity to move forward.
+            </blockquote>
             <figcaption>N.R.</figcaption>
           </figure>
-          <figure>
+          <figure className="quote-main">
+            <blockquote>“We really would not be where we are without you.”</blockquote>
+          </figure>
+          <figure className="quote-card quote-right">
             <blockquote>
-              “Thank you for sending my way such an amazing and quality girl.”
+              Insightful, practical, and genuinely invested in our growth as a couple.
             </blockquote>
             <figcaption>David</figcaption>
           </figure>
-          <figure>
-            <blockquote>“The help and guidance that you gave me was priceless.”</blockquote>
+          <figure className="quote-card quote-bottom">
+            <blockquote>
+              I felt truly understood and supported at every step of the process.
+            </blockquote>
             <figcaption>Tziporah</figcaption>
           </figure>
         </div>
-        <a className="text-link testimonials-link" href="https://www.drjackdating.com/testimonials">
-          Read more success stories
-        </a>
+      </section>
+
+      <section className="recent-matches reveal" aria-labelledby="recent-matches-title">
+        <div className="recent-matches-heading shell">
+          <p className="eyebrow">Recent matches</p>
+          <h2 id="recent-matches-title">
+            Introductions that became something <em>lasting.</em>
+          </h2>
+        </div>
+        <CardFanCarousel cards={recentMatches} />
       </section>
 
       <section className="closing shell reveal" aria-labelledby="closing-title">
-        <h2 id="closing-title">A clearer next step can begin with one conversation.</h2>
+        <h2 id="closing-title">
+          A clearer next step can begin<br />with <em>one conversation.</em>
+        </h2>
         <p>Private consultations for dating, marriage, and matchmaking.</p>
-        <a className="button" href={consultationUrl}>
+        <Link className="button" href={consultationUrl}>
           Book a consultation
-        </a>
+        </Link>
         <a className="email-link" href="mailto:jcohen.dating@gmail.com">
-          Prefer email? jcohen.dating@gmail.com
+          Prefer email? <span>jcohen.dating@gmail.com</span>
         </a>
       </section>
 
-      <footer className="site-footer shell">
-        <a className="footer-brand" href="#home">DR. JACK <span>DATING</span></a>
-        <nav aria-label="Footer navigation">
-          {navItems.slice(1).map(([label, href]) => (
-            <a key={label} href={href}>
-              {label}
-            </a>
-          ))}
-          <a href="https://www.drjackdating.com/contact">Contact</a>
-        </nav>
-        <p>Private guidance for meaningful relationships.</p>
-      </footer>
+      <SiteFooter activePage="Home" />
     </main>
   );
 }
